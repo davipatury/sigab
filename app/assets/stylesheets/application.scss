@@ -1,0 +1,58 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+
+.main {
+    min-height: 100vh;
+    padding: 0;
+    color: #fff;
+}
+
+.main-top {
+    min-height: 60vh;
+    background: #057F36;
+}
+
+.main-bottom {
+    min-height: 40vh;
+    background: #03417E;
+}
+
+.main-bottom > .container {
+    padding-top: 32px;
+}
+
+.main-top.fluxo { min-height: 85vh; }
+.main-bottom.fluxo { min-height: 15vh; }
+
+.logo-unb, .user-profile {
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+.logo-unb .img-thumbnail,
+.user-profile .img-thumbnail {
+    width: 200px;
+}
+
+.user-profile .btn-group-vertical,
+.user-profile .nome-mat {
+    margin-top: 24px;
+}
+
+.integralizacoes > h2, .turmas > h2 {
+    margin-bottom: 24px;
+}

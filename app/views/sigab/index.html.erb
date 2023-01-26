@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SIGAB</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <%= favicon_link_tag asset_path('logo_unb.svg') %>
+  </head>
+
+  <body>
+    <div class="container-fluid text-center main">
+      <div class="container-fluid main-top">
+        <div class="row">
+          <div class="col align-self-start">
+            <div class="container text-start logo-unb">
+              <%= link_to index_path do %>
+                <%= image_tag "logo_unb.svg", class: "img-thumbnail", alt: "logo-unb" %>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-8"></div>
+          <div class="col align-self-end">
+            <div class="container text-center user-profile">
+              <div class="container">
+                <%= image_tag "no_picture.png", class: "img-thumbnail", alt: "user-pic" %>
+              </div>
+              <div class="container nome-mat">
+                <h3>Felipe Monte</h3>
+                <h4>200289169</h4>
+              </div>
+              <div class="btn-group-vertical btn-group-lg" role="group" aria-label="Vertical button group">
+                <%= link_to 'Fluxo', fluxo_path(1), class: "btn btn-light btn-lg" %>
+                <button type="button" class="btn btn-light btn-lg">Oferta</button>
+                <button type="button" class="btn btn-light btn-lg">Saldo RU</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid main-bottom">
+        <div class="container">
+        <div class="row">
+          <div class="col align-self-start turmas">
+            <h2>Turmas</h2>
+            <table class="table table-light">
+              <thead>
+                <tr>
+                  <th scope="col">Componente curricular</th>
+                  <th scope="col">Local</th>
+                  <th scope="col">Horário</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Sistemas de Informação</td>
+                  <td>PAT AT 029</td>
+                  <td>35T23</td>
+                </tr>
+                <tr>
+                  <td>Engenharia de Software</td>
+                  <td>PAT AT 037</td>
+                  <td>35M12</td>
+                </tr>
+                <tr>
+                  <td>Introdução a Inteligência Artifical</td>
+                  <td>PJC BT 036</td>
+                  <td>24T23</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col align-self-end text-center integralizacoes">
+            <h2>Integralizações</h2>
+            <table class="table table-light">
+              <tbody>
+                <tr>
+                  <th scope="row">CH. Obrigatória Pendente</th>
+                  <td>30h</td>
+                </tr>
+                <tr>
+                  <th scope="row">CH. Optativa Pendente</th>
+                  <td>30h</td>
+                </tr>
+                <tr>
+                  <th scope="row">CH. Total Pendente</th>
+                  <td>60h</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SIGAB - Fluxograma</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <%= favicon_link_tag asset_path('logo_unb.svg') %>
+  </head>
+
+  <body>
+    <div class="container-fluid text-center main">
+      <div class="container-fluid main-top fluxo">
+        <div class="row">
+          <div class="col-4 align-self-start">
+            <div class="container text-start logo-unb">
+              <%= link_to index_path do %>
+                <%= image_tag "logo_unb.svg", class: "img-thumbnail", alt: "logo-unb" %>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-8"></div>
+          <div class="col align-self-end"></div>
+        </div>
+      </div>
+      <div class="container-fluid main-bottom fluxo">
+        <div class="container"></div>
+      </div>
+    </div>
+  </body>
+</html>
