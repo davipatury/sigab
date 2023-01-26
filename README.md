@@ -1,24 +1,33 @@
-# README
+# SIGAB
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Dependências
 
-Things you may want to cover:
+* [Ruby 3.1.3](https://ruby-lang.org)
+* [Rails 7.0.4.2](https://rubyonrails.org)
+* [Sqlite3 3.40.1](https://sqlite.org)
 
-* Ruby version
+## Desenvolvimento
 
-* System dependencies
+Primeiramente rodar
 
-* Configuration
+```
+bundle install
+```
 
-* Database creation
+ou
 
-* Database initialization
+```
+ruby bin/bundle install
+```
 
-* How to run the test suite
+e para iniciar o servidor de desenvolvimento usar
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+rails server
+```
 
-* Deployment instructions
+ou
 
-* ...
+```
+ruby bin/rails install
+```
