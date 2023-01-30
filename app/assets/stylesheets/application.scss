@@ -45,7 +45,7 @@
 
 .logo-unb .img-thumbnail,
 .user-profile .img-thumbnail {
-    width: 200px;
+    width: 100px;
 }
 
 .user-profile .btn-group-vertical,
@@ -55,4 +55,12 @@
 
 .integralizacoes > h2, .turmas > h2 {
     margin-bottom: 24px;
+}
+
+.fluxo svg {
+    cursor: grab;
+}
+
+.fluxo svg .node {
+    cursor: move;
 }

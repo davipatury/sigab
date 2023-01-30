@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SIGAB - Fluxograma</title>
+    <title>SIGAB - Saldo RU</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -9,27 +9,24 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <%= javascript_include_tag "graph", type: "module" %>
     <%= favicon_link_tag asset_path('logo_unb.svg') %>
   </head>
 
   <body>
     <div class="container-fluid text-center main">
-      <div class="container-fluid main-top fluxo">
-        <div class="row">
-          <div class="col-4 align-self-start">
+      <div class="row main-top mx-0">
+          <div class="col align-self-start">
             <div class="container text-start logo-unb">
               <%= link_to index_path do %>
                 <%= image_tag "logo_unb.svg", class: "img-thumbnail", alt: "logo-unb" %>
               <% end %>
             </div>
           </div>
-          <div class="col-8"></div>
-          <div class="col align-self-end"></div>
-        </div>
+          <div class="col"></div>
+          <div class="col align-self-center">
+          </div>
       </div>
-      <div class="container-fluid main-bottom fluxo">
-        <div class="container"><h3 data-bs-toggle="tooltip" data-bs-title="Default tooltip">adadwadaw</h3></div>
+      <div class="row mx-0 justify-content-around align-items-center main-bottom">
       </div>
     </div>
   </body>
