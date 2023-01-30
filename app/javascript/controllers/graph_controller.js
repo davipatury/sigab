@@ -46,7 +46,7 @@ export default class extends Controller {
       nodeId: d => d.id,
       nodeGroup: d => d.group,
       nodeTitle: d => d.name,
-      nodeDescription: d => `<p>${d.group}º semestre</p>${preRequirementsText(d.id)}`,
+      nodeDescription: d => `<p>${d.group}º semestre</p>${preRequirementsText(d.id)}<p><a type="button" class="btn btn-success disabled">Consultar oferta</a></p>`,
       nodeRadius: 24,
       nodeStrength: -100,
       linkStrength: 0.005,

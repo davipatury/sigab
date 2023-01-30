@@ -76,3 +76,7 @@
 .fluxo-top {
     min-height: calc(100vh - 14.8vh) !important;
 }
+
+.btn.disabled {
+    cursor: not-allowed !important;
+}
