@@ -49,7 +49,9 @@ export default class extends Controller {
       nodeDescription: d => `<p>${d.group}º semestre</p>${preRequirementsText(d.id)}<p><a type="button" class="btn btn-success disabled">Consultar oferta</a></p>`,
       nodeRadius: 24,
       nodeStrength: -100,
-      linkStrength: 0.005,
+      centerStrength: 1,
+      linkStrength: 2,
+      linkDistance: 350,
       linkStrokeWidth: 3,
       linkStrokeOpacity: 1,
       linkStroke: "#ccc",
@@ -104,6 +106,8 @@ function ForceGraph({
     linkStrokeWidth = 1.5, // given d in links, returns a stroke width in pixels
     linkStrokeLinecap = "round", // link stroke linecap
     linkStrength,
+    linkDistance,
+    centerStrength,
     colors = d3.schemeTableau10, // an array of color strings, for the node groups
     width = 640, // outer width, in pixels
     height = 400, // outer height, in pixels
@@ -135,11 +139,16 @@ function ForceGraph({
     const forceLink = d3.forceLink(links).id(({index: i}) => N[i]);
     if (nodeStrength !== undefined) forceNode.strength(nodeStrength);
     if (linkStrength !== undefined) forceLink.strength(linkStrength);
+    if (linkDistance !== undefined) forceLink.distance(linkDistance);
+
+    const forceCenter = d3.forceCenter()
+    if (centerStrength !== undefined) forceCenter.strength(centerStrength);
   
     const simulation = d3.forceSimulation(nodes)
         .force("link", forceLink)
         .force("charge", forceNode)
-        .force("center",  d3.forceCenter())
+        .force("center",  forceCenter)
+        .force("collide", d3.forceCollide(nodeRadius))
         .on("tick", ticked);
     
     function handleZoom(e) {
