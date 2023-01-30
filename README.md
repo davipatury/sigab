@@ -8,8 +8,7 @@
 
 ## Desenvolvimento
 
-Primeiramente rodar
-
+### Instalar dependências
 ```
 bundle install
 ```
@@ -20,8 +19,18 @@ ou
 ruby bin/bundle install
 ```
 
-e para iniciar o servidor de desenvolvimento usar
+### Iniciar banco de dados
+```
+rails db:setup
+```
 
+ou
+
+```
+ruby bin/rails db:setup
+```
+
+### Iniciar servidor de desenvolvimento (porta 3000)
 ```
 rails server
 ```
