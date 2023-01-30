@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SIGAB - Fluxogramas</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    
+    <%= favicon_link_tag asset_path('logo_unb.svg') %>
+  </head>
+
+  <body>
+    <div class="container-fluid text-center main">
+      <div class="row main-top fluxo-top mx-0">
+        <div class="col-2 align-self-start">
+          <div class="container text-start logo-unb" >
+            <%= link_to index_path, :'data-controller' => "tooltip", :'data-bs-title' => "Voltar à página inicial" do %>
+              <%= image_tag "logo_unb.svg", class: "img-thumbnail", alt: "logo-unb" %>
+            <% end %>
+          </div>
+          <div class="container mt-5 text-center">
+            <div class="card text-bg-light" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Opções</h5>
+                <div>
+                  <%= link_to fluxo_path(1), class: "btn btn-info my-2" do %>
+                    <%= bootstrap_icon "diagram-3-fill" %> Navegar pelo fluxograma do meu curso
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col align-self-start my-5" data-graph-target="draw">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Nome do curso" aria-label="Nome do curso" aria-describedby="button-addon2">
+            <button class="btn btn-dark" type="button" id="button-addon2">Pesquisar <%= bootstrap_icon "search", class: "mx-1" %></button>
+          </div>
+          <div class="my-3 container resultados">
+            <div class="row">
+              <% @fluxos.each do |fluxo| %>
+              <div class="col">
+                <div class="container mt-5 text-center">
+                  <div class="card text-bg-light" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= fluxo.curso %></h5>
+                      <div>
+                        <%= link_to fluxo_path(fluxo.id), class: "btn btn-info my-2" do %>
+                          <%= bootstrap_icon "diagram-3-fill" %> Fluxograma
+                        <% end %>
+                        <button type="button" class="btn btn-info">
+                          <%= bootstrap_icon "map-fill" %> Estrutura curricular
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="col-2 align-self-center">
+          
+        </div>
+      </div>
+      <div class="row mx-0 justify-content-around align-items-center main-bottom fluxo-bottom">
+      </div>
+    </div>
+  </body>
+</html>

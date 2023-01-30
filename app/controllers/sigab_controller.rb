@@ -3,9 +3,12 @@ class SigabController < ActionController::Base
 
   end
 
+  def fluxos
+    @fluxos = Fluxo.all
+  end
+
   def fluxo
-    # requisição api do fluxograma
-    # @fluxo = request ...
+    @fluxo = Fluxo.find(params[:id])
   end
 
   def saldo_ru

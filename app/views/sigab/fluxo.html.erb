@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SIGAB - Fluxograma</title>
+    <title>Fluxograma - <%= @fluxo.curso %></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -9,27 +9,72 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <%= javascript_include_tag "graph", type: "module" %>
+    
     <%= favicon_link_tag asset_path('logo_unb.svg') %>
   </head>
 
   <body>
     <div class="container-fluid text-center main">
-      <div class="container-fluid main-top fluxo">
-        <div class="row">
-          <div class="col-4 align-self-start">
-            <div class="container text-start logo-unb">
-              <%= link_to index_path do %>
-                <%= image_tag "logo_unb.svg", class: "img-thumbnail", alt: "logo-unb" %>
-              <% end %>
+      <div class="row main-top fluxo-top mx-0" data-controller="graph">
+        <div class="col-2 align-self-start">
+          <div class="container text-start logo-unb" >
+            <%= link_to index_path, :'data-controller' => "tooltip", :'data-bs-title' => "Voltar à página inicial" do %>
+              <%= image_tag "logo_unb.svg", class: "img-thumbnail", alt: "logo-unb" %>
+            <% end %>
+          </div>
+          <div class="container mt-5 text-center">
+            <div class="card text-bg-light" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Instruções</h5>
+                <div>
+                  <p><%= bootstrap_icon "arrows-move", class: "mx-2" %>Clique e arraste para se mover pelo fluxo</p>
+                  <p><%= bootstrap_icon "hand-index", class: "mx-2" %>Clique em uma das disciplinas para saber mais informações</p>
+                  <p><%= bootstrap_icon "zoom-in", class: "mx-2" %>Clique duas vezes na tela ou use o scroll do mouse para alterar o nível do zoom</p>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-8"></div>
-          <div class="col align-self-end"></div>
+          <div class="container mt-5 text-center">
+            <div class="card text-bg-light" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Opções</h5>
+                <div>
+                  <%= link_to fluxos_path, class: "btn btn-info my-2" do %>
+                    <%= bootstrap_icon "arrow-return-left" %> Voltar à pesquisa de fluxos
+                  <% end %>
+                  <% if @fluxo.id == 1 %>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="button" data-action="click->graph#toggleHidden">
+                      <%= bootstrap_icon "check-circle-fill" %> Esconder componentes concluídos
+                    </button>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="col align-self-center fluxo" data-graph-target="draw">
+          <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        <div class="col-2 align-self-center">
+          <div class="card text-bg-light" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Legenda</h5>
+              <h6 class="card-subtitle mb-2 text-muted">O que cada cor representa</h6>
+              <div data-graph-target="labels">
+                <p class="card-text placeholder-glow"><span class="placeholder col-8"></span></p>
+                <p class="card-text placeholder-glow"><span class="placeholder col-8"></span></p>
+                <p class="card-text placeholder-glow"><span class="placeholder col-8"></span></p>
+                <p class="card-text placeholder-glow"><span class="placeholder col-8"></span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%= tag :meta, name: :nodes, content: @fluxo.nodes.to_json %>
+        <%= tag :meta, name: :links, content: @fluxo.links.to_json %>
       </div>
-      <div class="container-fluid main-bottom fluxo">
-        <div class="container"><h3 data-bs-toggle="tooltip" data-bs-title="Default tooltip">adadwadaw</h3></div>
+      <div class="row mx-0 justify-content-around align-items-center main-bottom fluxo-bottom">
       </div>
     </div>
   </body>

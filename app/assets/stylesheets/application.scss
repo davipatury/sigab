@@ -64,3 +64,15 @@
 .fluxo svg .node {
     cursor: move;
 }
+
+.fluxo svg .node:focus {
+    border-radius: 50%;
+}
+
+.fluxo-bottom {
+    min-height: 14.8vh !important;
+}
+
+.fluxo-top {
+    min-height: calc(100vh - 14.8vh) !important;
+}
