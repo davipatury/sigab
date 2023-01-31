@@ -17,7 +17,7 @@
       <div class="row main-top mx-0">
           <div class="col align-self-start">
             <div class="container text-start logo-unb">
-              <%= link_to index_path, :'data-controller' => "tooltip", :'data-bs-title' => "Voltar à página inicial" do %>
+              <%= link_to index_path do %>
                 <%= image_tag "logo_unb.svg", class: "img-thumbnail", alt: "logo-unb" %>
               <% end %>
             </div>
@@ -36,7 +36,7 @@
                 <%= link_to fluxos_path, class: "btn btn-light btn-lg" do %>
                   <%= bootstrap_icon "diagram-3-fill" %> Fluxos
                 <% end %>
-                <button type="button" class="btn btn-light btn-lg">
+                <button type="button" class="btn btn-light btn-lg disabled">
                   <%= bootstrap_icon "briefcase-fill" %> Oferta
                 </button>
                 <%= link_to saldo_ru_path, class: "btn btn-light btn-lg" do %>
@@ -59,17 +59,17 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>Sistemas de Informação</td>
+                  <td><a href="#">Sistemas de Informação</a></td>
                   <td>PAT AT 029</td>
                   <td>35T23</td>
                 </tr>
                 <tr>
-                  <td>Engenharia de Software</td>
+                  <td><a href="#">Engenharia de Software</a></td>
                   <td>PAT AT 037</td>
                   <td>35M12</td>
                 </tr>
                 <tr>
-                  <td>Introdução a Inteligência Artifical</td>
+                  <td><a href="#">Introdução a Inteligência Artifical</a></td>
                   <td>PJC BT 036</td>
                   <td>24T23</td>
                 </tr>

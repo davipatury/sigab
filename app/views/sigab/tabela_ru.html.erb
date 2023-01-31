@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SIGAB - Tabela RU</title>
+    <title>SIGAB - Valores Refeições RU</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -9,24 +9,102 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    
     <%= favicon_link_tag asset_path('logo_unb.svg') %>
   </head>
 
   <body>
     <div class="container-fluid text-center main">
-      <div class="row main-top mx-0">
-          <div class="col align-self-start">
-            <div class="container text-start logo-unb">
-              <%= link_to index_path do %>
-                <%= image_tag "logo_unb.svg", class: "img-thumbnail", alt: "logo-unb" %>
-              <% end %>
+      <div class="row main-top fluxo-top mx-0">
+        <div class="col-2 align-self-start">
+          <div class="container text-start logo-unb" >
+            <%= link_to index_path, :'data-controller' => "tooltip", :'data-bs-title' => "Voltar à página inicial" do %>
+              <%= image_tag "logo_unb.svg", class: "img-thumbnail", alt: "logo-unb" %>
+            <% end %>
+          </div>
+        </div>
+        <div class="col align-self-center" data-graph-target="draw">
+          <div class="container saldo-ru">
+            <div class="card text-bg-light my-5">
+              <div class="card-body">
+                <h2 class="card-title">Valor das Refeições</h2>
+                <div>
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col" rowspan="2" class="align-middle">Refeição</th>
+                        <th scope="col" colspan="4">Valor</th>
+                      </tr>
+                      <tr>
+                        <th scope="col">Grupo I</th>
+                        <th scope="col">Grupo II</th>
+                        <th scope="col">Grupo III</th>
+                        <th scope="col">Restaurante executivo</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Desjejum</td>
+                        <td>Gratuito</td>
+                        <td>R$2,85</td>
+                        <td>R$7,05</td>
+                        <td>R$49,90/kg</td>
+                      </tr>
+                      <tr>
+                        <td>Almoço</td>
+                        <td>Gratuito</td>
+                        <td>R$6,10</td>
+                        <td>R$15,20</td>
+                        <td>R$49,90/kg</td>
+                      </tr>
+                      <tr>
+                        <td>Jantar</td>
+                        <td>Gratuito</td>
+                        <td>R$6,10</td>
+                        <td>R$15,20</td>
+                        <td>R$49,90/kg</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h3>Grupos de acesso</h3>
+                  <table class="table table-bordered">
+                  <tbody>
+                    <tr>
+                      <th scope="row">Grupo I</th>
+                      <td>Estudantes em vunerabilidade econômica (com renda familiar per capita inferior a 1,5 salário mínimo).</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Grupo II</th>
+                      <td>Estudantes que não estão em vunerabilidade econômica (com renda familiar per capita superior a 1,5 salário mínimo).</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Grupo III</th>
+                      <td>Servidores, terceirizados e visitantes em geral.</td>
+                    </tr>
+                  </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col"></div>
-          <div class="col align-self-center">
-          </div>
+        </div>
+        <div class="col-2 align-self-center"></div>
       </div>
-      <div class="row mx-0 justify-content-around align-items-center main-bottom">
+      <div class="row mx-0 justify-content-around align-items-center main-bottom fluxo-bottom">
+        <div class="container text-center justify-content-center align-items-center d-flex py-2">
+          <div class="card text-bg-light">
+            <div class="card-body">
+              <div>
+                <%= link_to index_path, class: "btn btn-danger" do %>
+                  <%= bootstrap_icon "arrow-return-left" %> Voltar à página principal
+                <% end %>
+                <%= link_to saldo_ru_path, class: "btn btn-info" do %>
+                  <%= bootstrap_icon "wallet-fill" %> Checar saldo RU
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </body>

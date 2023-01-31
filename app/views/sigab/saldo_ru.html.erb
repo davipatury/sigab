@@ -9,24 +9,92 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    
     <%= favicon_link_tag asset_path('logo_unb.svg') %>
   </head>
 
   <body>
     <div class="container-fluid text-center main">
-      <div class="row main-top mx-0">
-          <div class="col align-self-start">
-            <div class="container text-start logo-unb">
-              <%= link_to index_path do %>
-                <%= image_tag "logo_unb.svg", class: "img-thumbnail", alt: "logo-unb" %>
-              <% end %>
+      <div class="row main-top fluxo-top mx-0">
+        <div class="col-2 align-self-start">
+          <div class="container text-start logo-unb" >
+            <%= link_to index_path, :'data-controller' => "tooltip", :'data-bs-title' => "Voltar à página inicial" do %>
+              <%= image_tag "logo_unb.svg", class: "img-thumbnail", alt: "logo-unb" %>
+            <% end %>
+          </div>
+        </div>
+        <div class="col align-self-center" data-graph-target="draw">
+          <div class="container saldo-ru">
+            <div class="card text-bg-light my-5">
+              <div class="card-body">
+                <h2 class="card-title">Saldo RU</h2>
+                <div>
+                  <h3>R$25,60</h3>
+                </div>
+              </div>
+            </div>
+            <div class="card text-bg-light my-5">
+              <div class="card-body">
+                <h2 class="card-title">Histórico</h2>
+                <div>
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Data/Horário</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Valor</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>26/01/2022 às 18:34</td>
+                        <td>Jantar (Grupo II)</td>
+                        <th class="text-danger" scope="row">-R$6,10</th>
+                      </tr>
+                      <tr>
+                        <td>26/01/2023 às 13:06</td>
+                        <td>Almoço (Grupo II)</td>
+                        <th class="text-danger" scope="row">-R$6,10</th>
+                      </tr>
+                      <tr>
+                        <td>25/01/2022 às 18:02</td>
+                        <td>Jantar (Grupo II)</td>
+                        <th class="text-danger" scope="row">-R$6,10</th>
+                      </tr>
+                      <tr>
+                        <td>24/01/2022 às 12:27</td>
+                        <td>Almoço (Grupo II)</td>
+                        <th class="text-danger" scope="row">-R$6,10</th>
+                      </tr>
+                      <tr>
+                        <td>23/01/2023 às 18:16</td>
+                        <td>Recarga</td>
+                        <th class="text-success" scope="row">+R$50,00</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col"></div>
-          <div class="col align-self-center">
-          </div>
+        </div>
+        <div class="col-2 align-self-center"></div>
       </div>
-      <div class="row mx-0 justify-content-around align-items-center main-bottom">
+      <div class="row mx-0 justify-content-around align-items-center main-bottom fluxo-bottom">
+        <div class="container text-center justify-content-center align-items-center d-flex py-2">
+          <div class="card text-bg-light">
+            <div class="card-body">
+              <div>
+                <%= link_to index_path, class: "btn btn-danger" do %>
+                  <%= bootstrap_icon "arrow-return-left" %> Voltar à página principal
+                <% end %>
+                <%= link_to tabela_ru_path, class: "btn btn-info" do %>
+                  <%= bootstrap_icon "currency-dollar" %> Tabela de preços RU
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </body>

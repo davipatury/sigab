@@ -22,18 +22,6 @@
               <%= image_tag "logo_unb.svg", class: "img-thumbnail", alt: "logo-unb" %>
             <% end %>
           </div>
-          <div class="container mt-5 text-center">
-            <div class="card text-bg-light">
-              <div class="card-body">
-                <h5 class="card-title">Opções</h5>
-                <div>
-                  <%= link_to fluxo_path(1), class: "btn btn-info my-2" do %>
-                    <%= bootstrap_icon "diagram-3-fill" %> Navegar pelo fluxograma do meu curso
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
         <div class="col align-self-start my-5" data-graph-target="draw">
           <div class="input-group mb-3">
@@ -64,11 +52,23 @@
             </div>
           </div>
         </div>
-        <div class="col-2 align-self-center">
-          
-        </div>
+        <div class="col-2 align-self-center"></div>
       </div>
       <div class="row mx-0 justify-content-around align-items-center main-bottom fluxo-bottom">
+        <div class="container text-center justify-content-center align-items-center d-flex py-2">
+          <div class="card text-bg-light">
+            <div class="card-body">
+              <div>
+                <%= link_to index_path, class: "btn btn-danger" do %>
+                  <%= bootstrap_icon "arrow-return-left" %> Voltar à página principal
+                <% end %>
+                <%= link_to fluxo_path(1), class: "btn btn-info" do %>
+                  <%= bootstrap_icon "diagram-3-fill" %> Navegar pelo fluxograma do meu curso
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </body>
